@@ -13,4 +13,4 @@ fi
 CWLPATH="'python $DIR/getcwlpath.py'"
 
 #replace main, job, process
-sudo mv $DIR/cwltool-ucsc/job.py $DIR/cwltool-ucsc/process.py $DIR/cwltool-ucsc/main.py $CWLPATH
+mv $DIR/cwltool-ucsc/job.py $DIR/cwltool-ucsc/process.py $DIR/cwltool-ucsc/main.py $CWLPATH
