@@ -1,17 +1,15 @@
 #!/usr/bin/env python
 
-from distutils.command.install import install as DistutilsInstall
 from setuptools import setup
+from setuptools.command.install import install
 import os
 
 
-class MyInstall(DistutilsInstall):
-
+class MyInstall(install):
     def run(self):
-        print "setup for cwltool-ucsc beginning"
-        DistutilsInstall.run(self)
+        install.run(self)
         SETUP_DIR = os.path.dirname(os.path.abspath(__file__))
-        PATCH_CMD = 'bash'+SETUP_DIR+'/patch.sh'
+        PATCH_CMD = 'bash '+SETUP_DIR+'/patch.sh'
         os.system(PATCH_CMD)
 
 setup(name='cwltool-ucsc',
@@ -22,5 +20,6 @@ setup(name='cwltool-ucsc',
       author_email='tboser@ucsc.edu',
       license='MIT',
       packages=['cwltool-ucsc'],
+      scripts=['patch.sh'],
       cmdclass={'install': MyInstall},
       zip_safe=False)

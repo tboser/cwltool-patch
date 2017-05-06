@@ -1,1 +1,2 @@
 include patch.sh
+include getcwlpath.py
